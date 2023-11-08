@@ -1,0 +1,3 @@
+/Users/nickgarbalau/Projects/fun-compiler/bld/CMakeFiles/func.dir
+/Users/nickgarbalau/Projects/fun-compiler/bld/CMakeFiles/edit_cache.dir
+/Users/nickgarbalau/Projects/fun-compiler/bld/CMakeFiles/rebuild_cache.dir
