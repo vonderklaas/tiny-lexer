@@ -1,36 +1,71 @@
-Tiny Compiler
+#tiny-lexer
 
-A compiler is a translator that converts the high-level language into the machine language.
-High-level language is written by a developer and machine language can be understood by the CPU.
+##What is compilation?
 
-The compilation process contains the sequence of various phases.
-Each phase takes source program in one representation and produces output in another representation.
-Each phase takes input from its previous stage.
+The compilation process transforms source code written in a high-level programming language into machine code that a computer's processor can execute. This process typically involves several stages, which will describe step-by-step here, focusing on a language like C.
 
----
+##Compilation Steps
 
-SOURCE
-&#8595;
-Lexical Analysis
+**Preprocessing** — ✅
 
-Lexical analyzer phase is the first phase of compilation process. It takes source code as input. It reads the source program one character at a time and converts it into meaningful lexemes. Lexical analyzer represents these lexemes in the form of tokens.
-&#8595;
-Syntax Analysis
+Input: Source code files
 
-Syntax analysis is the second phase of compilation process. It takes tokens as input and generates a parse tree as output. In syntax analysis phase, the parser checks that the expression made by the tokens is syntactically correct or not.
-&#8595;
-Semantic Analysis
+Process: The preprocessor handles directives that begin with `#` in C, like `#include` or `#if`. That includes header files, macro expansions and conditional compilation
 
-Semantic analysis is the third phase of compilation process. It checks whether the parse tree follows the rules of language. Semantic analyzer keeps track of identifiers, their types and expressions. The output of semantic analysis phase is the annotated tree syntax.
-&#8595;
-Intermediate Code Generation
+Output: A modified source code, with all preprocessor directives executed and expanded
 
-In the intermediate code generation, compiler generates the source code into the intermediate code. Intermediate code is generated between the high-level language and the machine language. The intermediate code should be generated in such a way that you can easily translate it into the target machine code.
-&#8595;
-Code Optimization
+**Tokenization** — ✅
 
-Code optimization is an optional phase. It is used to improve the intermediate code so that the output of the program could run faster and take less space. It removes the unnecessary lines of the code and arranges the sequence of statements in order to speed up the program execution.
-&#8595;
-Code Generation
+Input: Preprocessed source code
 
-Code generation is the final stage of the compilation process. It takes the optimized intermediate code as input and maps it to the target machine language. Code generator translates the intermediate code into the machine code of the specified computer.
+Process: The lexer or tokenizer breaks the source code into tokens. Tokens are the fundamental elements like keywords, operators, identifiers, literals and etc.
+
+Output: A stream of tokens *[in progress]*
+
+**Syntax Analysis** — In Progress
+
+Input: Tokens from Lexical Analysis
+
+Process: The parser checks the syntax according to the language grammar rules and constructs a data structure, usually called an AST. The AST represents the hierarchical synctactic structure of the code.
+
+Output: AST 
+
+**Semantic Analysis**
+
+Input: AST
+
+Process: This stage involves checking for semantic errors, resolving variable and function references and type checking. It ensures that the code makes sense in the context of the language rules.
+
+Output: Annotated AST with semantic information
+
+**Intermediate Code Generation**
+
+Input: Annotated AST
+
+Process: The compiler generates an intermediate representation or IR of the source code. This IR is a lower-level representaion of the code, but is not yet machine code. It is more abstract than machine code, but more concrete than high-level code.
+
+Output: IR, often in form like Three Address Code or TAC.
+
+**Optimization**
+
+Input: IR code
+
+Proccess: The compiler optimizes the IR code to improve performance and reduce resource usage. Optimization can happen at multiple levels, like loop optimization or inlining the functions.
+
+Outptu: Optimized IR code.
+
+**Code Generation**
+
+Input: Optimized IR code.
+
+Process: This stage translates the IR code into machine code specific to the target platforms CPU architecture. This involves register allocation, instruction selection and other low-level details.
+
+Output: Machine code or Assembly
+
+**Linking**
+
+Input: Compiled machine code files and libraries
+
+Process: The linker combines the machine code from various files and libraries into a single executable file. It resolves references to external functions and variables across files.
+
+Output: A single executable file that can be run on the specific machine architecture.

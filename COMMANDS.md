@@ -1,3 +1,5 @@
+This is developed on MacOS in 2023
+
 Have this installed
 ```
 brew install ninja
@@ -16,5 +18,5 @@ cmake --build bld
 
 Run
 ```
-bld/func `example`
+bld/func `tinylang`
 ```
