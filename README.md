@@ -1,4 +1,4 @@
-#tiny-lexer
+tiny-lexer
 
 ## What is Lexing?
 
@@ -56,34 +56,34 @@ Token 30: }
 
 ## What is Compilation?
 
-**Preprocessing** — ✅
-Input: Source Code
+**Preprocessing** — ✅ <br>
+Input: Source Code <br>
 Output: Modified Source Code
 
-**Tokenization** — ✅
-Input: Preprocessed Source Code
+**Tokenization** — ✅ <br>
+Input: Preprocessed Source Code <br>
 Output: Stream of Tokens
 
-**Syntax Analysis**
-Input: Tokens from Lexical Analysis (Tokenization)
+**Syntax Analysis** <br>
+Input: Tokens from Lexical Analysis (Tokenization) <br>
 Output: AST 
 
-**Semantic Analysis**
-Input: AST
+**Semantic Analysis** <br>
+Input: AST <br>
 Output: Annotated AST with Semantic Information
 
-**Intermediate Code Generation**
-Input: Annotated AST
+**Intermediate Code Generation** <br>
+Input: Annotated AST <br>
 Output: IR
 
-**Optimization**
-Input: IR
+**Optimization** <br>
+Input: IR <br>
 Output: Optimized IR
 
-**Code Generation**
-Input: Optimized IR
+**Code Generation** <br>
+Input: Optimized IR <br>
 Output: Machine Code or Assembly
 
-**Linking**
-Input: Compiled Machine Code
+**Linking** <br>
+Input: Compiled Machine Code <br>
 Output: Single Executable for Specific Architecture
