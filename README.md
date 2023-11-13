@@ -1,71 +1,89 @@
 #tiny-lexer
 
-##What is compilation?
+## What is Lexing?
 
-The compilation process transforms source code written in a high-level programming language into machine code that a computer's processor can execute. This process typically involves several stages, which will describe step-by-step here, focusing on a language like C.
+Lexical tokenization is conversion of a text into (semantically or syntactically) meaningful lexical tokens belonging to categories defined by a lexer program. In case of a natural language, those categories include nouns, verbs, adjectives, punctuations etc. In case of a programming language, the categories include identifiers, operators, grouping symbols and data types.
 
-##Compilation Steps
+Code
+
+```
+a : integer = 0
+a := 0
+
+b : integer
+b := 0
+
+defun foo (a:integer, b:integer):integer {
+
+}
+```
+
+Tokens
+```
+Token 0: a
+Token 1: :
+Token 2: integer
+Token 3: =
+Token 4: 0
+Token 5: a
+Token 6: :
+Token 7: =
+Token 8: 0
+Token 9: b
+Token 10: :
+Token 11: integer
+Token 12: b
+Token 13: :
+Token 14: =
+Token 15: 0
+Token 16: defun
+Token 17: foo
+Token 18: (
+Token 19: a
+Token 20: :
+Token 21: integer
+Token 22: ,
+Token 23: b
+Token 24: :
+Token 25: integer
+Token 26: )
+Token 27: :
+Token 28: integer
+Token 29: {
+Token 30: }
+```
+
+
+## What is Compilation?
 
 **Preprocessing** — ✅
-
-Input: Source code files
-
-Process: The preprocessor handles directives that begin with `#` in C, like `#include` or `#if`. That includes header files, macro expansions and conditional compilation
-
-Output: A modified source code, with all preprocessor directives executed and expanded
+Input: Source Code
+Output: Modified Source Code
 
 **Tokenization** — ✅
+Input: Preprocessed Source Code
+Output: Stream of Tokens
 
-Input: Preprocessed source code
-
-Process: The lexer or tokenizer breaks the source code into tokens. Tokens are the fundamental elements like keywords, operators, identifiers, literals and etc.
-
-Output: A stream of tokens *[in progress]*
-
-**Syntax Analysis** — In Progress
-
-Input: Tokens from Lexical Analysis
-
-Process: The parser checks the syntax according to the language grammar rules and constructs a data structure, usually called an AST. The AST represents the hierarchical synctactic structure of the code.
-
+**Syntax Analysis**
+Input: Tokens from Lexical Analysis (Tokenization)
 Output: AST 
 
 **Semantic Analysis**
-
 Input: AST
-
-Process: This stage involves checking for semantic errors, resolving variable and function references and type checking. It ensures that the code makes sense in the context of the language rules.
-
-Output: Annotated AST with semantic information
+Output: Annotated AST with Semantic Information
 
 **Intermediate Code Generation**
-
 Input: Annotated AST
-
-Process: The compiler generates an intermediate representation or IR of the source code. This IR is a lower-level representaion of the code, but is not yet machine code. It is more abstract than machine code, but more concrete than high-level code.
-
-Output: IR, often in form like Three Address Code or TAC.
+Output: IR
 
 **Optimization**
-
-Input: IR code
-
-Proccess: The compiler optimizes the IR code to improve performance and reduce resource usage. Optimization can happen at multiple levels, like loop optimization or inlining the functions.
-
-Outptu: Optimized IR code.
+Input: IR
+Output: Optimized IR
 
 **Code Generation**
-
-Input: Optimized IR code.
-
-Process: This stage translates the IR code into machine code specific to the target platforms CPU architecture. This involves register allocation, instruction selection and other low-level details.
-
-Output: Machine code or Assembly
+Input: Optimized IR
+Output: Machine Code or Assembly
 
 **Linking**
-
-Input: Compiled machine code files and libraries
-
-Process: The linker combines the machine code from various files and libraries into a single executable file. It resolves references to external functions and variables across files.
-
-Output: A single executable file that can be run on the specific machine architecture.
+Input: Compiled Machine Code
+Output: Single Executable for Specific Architecture
