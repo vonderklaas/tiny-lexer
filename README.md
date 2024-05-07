@@ -1,12 +1,11 @@
-tiny-lexer
-
-## What is Lexing?
+### Description
 
 Lexical tokenization is conversion of a text into (semantically or syntactically) meaningful lexical tokens belonging to categories defined by a lexer program. In case of a natural language, those categories include nouns, verbs, adjectives, punctuations etc. In case of a programming language, the categories include identifiers, operators, grouping symbols and data types.
 
-Code
+### Examples
 
-```
+This is source code
+```c
 a : integer = 0
 a := 0
 
@@ -18,8 +17,8 @@ defun foo (a:integer, b:integer):integer {
 }
 ```
 
-Tokens
-```
+These are broken down tokens
+```c
 Token 0: a
 Token 1: :
 Token 2: integer
@@ -54,7 +53,7 @@ Token 30: }
 ```
 
 
-## What is Compilation?
+### Compilation Stages
 
 **Preprocessing** — ✅ <br>
 Input: Source Code <br>
@@ -64,22 +63,27 @@ Output: Modified Source Code
 Input: Preprocessed Source Code <br>
 Output: Stream of Tokens
 
+(WIP)
 **Syntax Analysis** <br>
 Input: Tokens from Lexical Analysis (Tokenization) <br>
 Output: AST 
 
+(WIP)
 **Semantic Analysis** <br>
 Input: AST <br>
 Output: Annotated AST with Semantic Information
 
+(WIP)
 **Intermediate Code Generation** <br>
 Input: Annotated AST <br>
 Output: IR
 
+(WIP)
 **Optimization** <br>
 Input: IR <br>
 Output: Optimized IR
 
+(WIP)
 **Code Generation** <br>
 Input: Optimized IR <br>
 Output: Machine Code or Assembly
